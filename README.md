@@ -1,5 +1,10 @@
 Hi-Low is a python project made by Eric Woll, Daniel Jones, Steven Beuchele for the CSE210 Class during weeks 3 and 4.
 
+** Requirements **
+Modules:
+- random
+- operator
+
 ** Hi-Low Layout **
 
 Stand Alone Functions:
