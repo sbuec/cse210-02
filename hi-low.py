@@ -1,5 +1,5 @@
 '''
-Author: Eric Woll, Daniel Jones, Steven Buechele
+Author: Eric Woll, Daniel Jones, Steven Buechele, Connor Baltich
 Assignment: Week 3 Hilo
 '''
 
