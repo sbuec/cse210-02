@@ -1,11 +1,12 @@
 '''
-Author: Eric Woll, Daniel Jones, Steven Beuchele
+Author: Eric Woll, Daniel Jones, Steven Buechele, Connor Baltich
 Assignment: Week 3 Hilo
 '''
 
 from random import randint
 from operator import gt, lt
 from os import system
+from time import sleep
 
 POINT_GAIN = 100
 POINT_LOSS = 75
@@ -52,10 +53,19 @@ def main():
             user_guess=user_guess, score=player_score.score)
             print()
             
-            again = input('Would you like to continue? ').lower()
+            if not player_score.is_zero():
+                again = input('Would you like to continue? ').lower()
+            else:
+                print('Your score is Zero, you lost!')
+                sleep(3)
 
-            if again in NO_LIST:
-                break
+            if again in NO_LIST or player_score.is_zero():
+                run = False
+                again = 'False'
+                Clear()
+                print('Thank you for playing!')
+                print(f'Your score: {player_score.score}')
+                sleep(3)
             elif again not in YES_LIST:
                 again = ''
 
@@ -89,9 +99,9 @@ def process_guess(display_msg:str) -> str:
     try:
         user_input = input(f'{display_msg}').lower()
         
-        if user_input == 'h':
+        if user_input == 'h' or user_input == 'higher':
             user_input = 'higher'
-        elif user_input == 'l':
+        elif user_input == 'l' or user_input == 'lower':
             user_input = 'lower'
         else:
             user_input = ''
@@ -99,6 +109,7 @@ def process_guess(display_msg:str) -> str:
 
     except (ValueError, KeyError):
         print('You did not enter an accepted input, please try again.')
+        sleep(3)
         
     return user_input
 
