@@ -1,6 +1,3 @@
-from operator import truediv
-
-
 def process_guess(display_msg:str) -> str:
     '''
     Takes in and checks player input for incorrect input.\n
